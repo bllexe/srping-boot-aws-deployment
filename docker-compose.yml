@@ -1,0 +1,34 @@
+#version: '3.8'
+#
+#services:
+#  mysql:
+#    image: mysql
+#    container_name: spring-mysql
+#    environment:
+#     MYSQL_ROOT_PASSWORD:
+#     MYSQL_DATABASE: db_meal
+#    ports:
+#      - "3306:3306"
+#    networks:
+#      - spring-network
+#
+#  spring-boot-aws-deployment:
+#    image: spring-boot-aws-deployment:latest
+#    container_name: spring-boot-aws-container
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://spring-mysql:3306/db_meal
+#      SPRING_DATASOURCE_USERNAME:
+#      SPRING_DATASOURCE_PASSWORD:
+#    depends_on:
+#      - mysql
+#    networks:
+#      - spring-network
+#
+#networks:
+#  spring-network:
+#    driver: bridge
